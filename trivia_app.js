@@ -18,19 +18,32 @@ let questionsDataBase = [
 ]
 
 const startBtn = document.querySelector("#start");
-//event listener para el botón de start
+//PENDIENTE: event listener para el botón de start
 //cuando se presione start se debe cambiar el título y las instruccionesy desaparecer el botón.
 
-//debe ir moviendose a través del array conforme se vaya respondiendo y registrando el score
+//el  siguiente código debe ir moviéndose a través del array conforme se vaya respondiendo y registrando el score
 document.querySelector("#question").innerText = questionsDataBase[0].question;
 document.querySelector("#answer1").innerText = questionsDataBase[0].optA;
 document.querySelector("#answer2").innerText = questionsDataBase[0].optB;
 document.querySelector("#answer3").innerText = questionsDataBase[0].optC;
 
+//INPUT FIELD (LA RESPUESTA SE GRABA EN LA VARIABLE)
+const answerInput = document.querySelector("#yourAnswer");
+
+//BOTÓN SUBMIT
 const submitBtn = document.querySelector("#submitAnsr");
-//even listener para el boton SUBMIT
+submitBtn.addEventListener("click", checkAnswer);
+submitBtn.addEventListener("enter", checkEnter);
+
+//una vez que se valide la respuesta, las preguntas y respuestas se deben reemplazar por las siguientes
 
 const exitBtn = document.querySelector("#exit");
-//even listener para el boton EXIT
+//PENDIENTE: event listener para el boton EXIT
+
+function checkEnter(event) {
+    if (event.keyCode === 13) {
+        checkAnswer(event)
+    }
+}
 
 console.log(questionsDataBase);
