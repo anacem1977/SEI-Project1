@@ -23,11 +23,12 @@ let questionsDataBase = [
         correct: "C"
     }
 ]
+document.querySelector("#form").style.visibility = "hidden";
+document.querySelector("#next").style.visibility = "hidden";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
 startBtn.addEventListener("click", startGame);
-//cuando se presione start se debe cambiar el título y las instruccionesy desaparecer el botón.
 
 //BOTÓN SUBMIT
 const submitBtn = document.querySelector("#submitAnsr");
@@ -55,11 +56,16 @@ function checkEnter(event) {
 let yourScore = 0;
 let ignorance = 0;
 
-//el  siguiente código debe ir moviéndose a través del array conforme se vaya respondiendo y registrando el score
-document.querySelector("#question").innerText = questionsDataBase[0].question;
-document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[0].optA;
-document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[0].optB;
-document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[0].optC;
+function startGame() {
+    //el  siguiente código debe ir moviéndose a través del array conforme se vaya respondiendo y registrando el score
+    document.querySelector("#question").innerText = questionsDataBase[0].question;
+    document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[0].optA;
+    document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[0].optB;
+    document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[0].optC;
+    document.querySelector("#form").style.visibility = "initial";
+    document.querySelector("#instructions").style.display = "none";
+    document.querySelector("#subtitle").style.display = "none";
+}
 
 function checkAnswer(event) {
     event.preventDefault();
@@ -70,16 +76,19 @@ function checkAnswer(event) {
         document.querySelector("#responseMsg").innerText = capAnswerInput + " is not a valid option";
         document.querySelector("#yourAnswer").value = "";
     } else {
+    document.querySelector("#next").style.visibility = "initial";
     document.querySelector("#responseMsg").innerText = "";
     document.querySelector("#yourAnswer").value = "";
     if (capAnswerInput === questionsDataBase[0].correct) {
         yourScore += 1;
         console.log(yourScore);
         document.querySelector("#responseMsg").innerText = "That is correct!";
+        document.querySelector("#form").style.visibility = "hidden";
     } else {
         ignorance += 1;
         console.log(ignorance);
-        document.querySelector("#responseMsg").innerText = "That is not correct!"
+        document.querySelector("#responseMsg").innerText = "That is not correct!";
+        document.querySelector("#form").style.visibility = "hidden";
         //LIMPIAR
         //SI LA RESPUESTA ES INCORRECTA PASAR A LA SIGUIENTE PREGUNTA
         //BOTON NEXT
@@ -89,4 +98,4 @@ function checkAnswer(event) {
     //LLEVAR REGISTRO DEL SCORE
 }
 
-console.log(questionsDataBase);
+console.log(questionsDataBase.length);
