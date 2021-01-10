@@ -16,18 +16,69 @@ let questionsDataBase = [
         correct: "B"
     },
     {
-        question: "What is Mexico's official name (in English)",
-        optA: "Republic of Mexico",
-        optB: "Mexico",
+        question: "What is México's official name (in English)",
+        optA: "Republic of México",
+        optB: "México",
+        optC: "Mexican United States",
+        correct: "C"
+    },
+    {
+        question: "Which of the following was invented by a Mexican?",
+        optA: "Washing machine",
+        optB: "Contraceptive Pill",
+        optC: "Adhesive tape",
+        correct: "B"
+    },
+    {
+        question: "When were the Olympic games celebrated in México?",
+        optA: "1976",
+        optB: "1988",
+        optC: "1968",
+        correct: "C"
+    },
+    {
+        question: "Which of the following is one of the main products México exports?",
+        optA: "Tomato",
+        optB: "Chile",
+        optC: "Strawberry",
+        correct: "A"
+    },
+    {
+        question: "What was México's name prior to its independence?",
+        optA: "México",
+        optB: "New Spain",
+        optC: "Tenochtitlán",
+        correct: "B"
+    },
+    {
+        question: "What is México's estimated population by 2020?",
+        optA: "130 million",
+        optB: "100 million",
+        optC: "115 million",
+        correct: "A"
+    },
+    {
+        question: "Which is the only state where Tequila is produced?",
+        optA: "Chihuahua",
+        optB: "Tlaxcala",
+        optC: "Jalisco",
+        correct: "C"
+    },
+    {
+        question: "What is México's official name (in English)",
+        optA: "Republic of México",
+        optB: "México",
         optC: "Mexican United States",
         correct: "C"
     }
 ]
+
 document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.visibility = "hidden";
+document.querySelector("#correctAnswer").style.visibility = "hidden";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -102,7 +153,9 @@ function checkAnswer(event) {
         ignorance += 1;
         console.log(ignorance);
         document.querySelector("#responseMsg").style.visibility = "initial"
-        document.querySelector("#responseMsg").innerText = "That is not correct!";
+        document.querySelector("#responseMsg").innerText = "That is incorrect!";
+        document.querySelector("#correctAnswer").style.visibility = "initial"
+        document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[i].correct;
         document.querySelector("#form").style.visibility = "hidden";
         } 
     }
@@ -118,6 +171,7 @@ function nextQuestion() {
     if (i < questionsDataBase.length) {
         document.querySelector("#next").style.visibility = "hidden";
         document.querySelector("#responseMsg").style.visibility = "hidden";
+        document.querySelector("#correctAnswer").style.visibility = "hidden"
         startGame();
     } else {
         document.querySelector("#next").style.visibility = "hidden";
