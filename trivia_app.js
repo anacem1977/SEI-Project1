@@ -26,6 +26,7 @@ let questionsDataBase = [
 document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
+document.querySelector("#playAgain").style.visibility = "hidden";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -45,6 +46,10 @@ exitBtn.addEventListener("click", exitGame);
 const nextBtn = document.querySelector("#next");
 nextBtn.addEventListener("click", nextQuestion);
 
+//BOTÓN PLAY AGAIN
+const playAgn = document.querySelector("#playAgain");
+playAgn.addEventListener("click", playAgain);
+
 function checkEnter(event) {
     console.log(event);
     if (event.keyCode === 13) {
@@ -58,9 +63,13 @@ let i=0;
 
 function startGame() {
     document.querySelector("#question").innerText = questionsDataBase[i].question;
+    document.querySelector("#question").style.visibility= "initial";
     document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[i].optA;
+    document.querySelector("#answer1").style.visibility= "initial";
     document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[i].optB;
+    document.querySelector("#answer2").style.visibility= "initial";
     document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[i].optC;
+    document.querySelector("#answer3").style.visibility= "initial";
     document.querySelector("#form").style.visibility = "initial";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
@@ -74,6 +83,7 @@ function checkAnswer(event) {
     const capAnswerInput = answerInput.toUpperCase();
     console.log(capAnswerInput);
     if (capAnswerInput !== "A" && capAnswerInput !== "B" && capAnswerInput !== "C") {
+        document.querySelector("#responseMsg").style.visibility = "initial"
         document.querySelector("#responseMsg").innerText = capAnswerInput + " is not a valid option";
         document.querySelector("#yourAnswer").value = "";
     } else {
@@ -83,11 +93,13 @@ function checkAnswer(event) {
     if (capAnswerInput === questionsDataBase[i].correct) {
         yourScore += 1;
         console.log("yourScore= "+yourScore);
+        document.querySelector("#responseMsg").style.visibility = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
         document.querySelector("#form").style.visibility = "hidden";
     } else {
         ignorance += 1;
         console.log(ignorance);
+        document.querySelector("#responseMsg").style.visibility = "initial"
         document.querySelector("#responseMsg").innerText = "That is not correct!";
         document.querySelector("#form").style.visibility = "hidden";
         } 
@@ -118,7 +130,19 @@ function exitGame() {
     document.querySelector("#answer2").style.visibility = "hidden";
     document.querySelector("#answer3").style.visibility = "hidden";
     document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
+    document.querySelector("#playAgain").style.visibility = "initial";
     //AGREGAR BOTON PARA VOLVER A COMENZAR
+}
+
+function playAgain() {
+    document.querySelector("h1").innerText = "How much do you know about México?";
+    document.querySelector("#form").style.visibility = "hidden";
+    document.querySelector("#instructions").style.display = "initial";
+    document.querySelector("#start").style.display = "initial";
+    document.querySelector("#subtitle").style.display = "initial";
+    document.querySelector("#exit").style.visibility = "hidden";
+    document.querySelector("#playAgain").style.visibility = "hidden";
+    i=0;
 }
 
 console.log(questionsDataBase.length);
