@@ -27,6 +27,7 @@ document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
+document.querySelector("#score").style.visibility = "hidden";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -60,6 +61,7 @@ function checkEnter(event) {
 let yourScore = 0;
 let ignorance = 0;
 let i=0;
+let finalScore = 0;
 
 function startGame() {
     document.querySelector("#question").innerText = questionsDataBase[i].question;
@@ -104,16 +106,29 @@ function checkAnswer(event) {
         document.querySelector("#form").style.visibility = "hidden";
         } 
     }
+    document.querySelector("#score").style.visibility = "initial";
+    document.querySelector("#yourScore").value = yourScore;
+    document.querySelector("#ignorance").value = ignorance;
+    finalScore = yourScore - ignorance;
+    if (finalScore > 0) {
+        console.log("PLAYER WINS");
+    } else if (finalScore < 0) {
+        console.log("IGNORANCE WINS");
+    } else {
+        console.log("IT'S A TIE");
+    }
+    return finalScore;
 }
 
 function nextQuestion() {
-    console.log(questionsDataBase.length);
     i ++;
     if (i < questionsDataBase.length) {
         document.querySelector("#next").style.visibility = "hidden";
+        document.querySelector("#responseMsg").style.visibility = "hidden";
         startGame();
     } else {
         document.querySelector("#next").style.visibility = "hidden";
+        document.querySelector("#responseMsg").style.visibility = "hidden";
         console.log("GAME OVER");
         exitGame();
         //MOSTRAR REGISTRO DEL SCORE
@@ -130,8 +145,11 @@ function exitGame() {
     document.querySelector("#answer2").style.visibility = "hidden";
     document.querySelector("#answer3").style.visibility = "hidden";
     document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
+    document.querySelector("#subtitle").style.display = "initial";
+    document.querySelector("subtitle").innerText = "Winner!";
     document.querySelector("#playAgain").style.visibility = "initial";
-    //AGREGAR BOTON PARA VOLVER A COMENZAR
+    document.querySelector("#score").style.visibility = "hidden";
+    console.log(finalScore);
 }
 
 function playAgain() {
@@ -142,6 +160,7 @@ function playAgain() {
     document.querySelector("#subtitle").style.display = "initial";
     document.querySelector("#exit").style.visibility = "hidden";
     document.querySelector("#playAgain").style.visibility = "hidden";
+    document.querySelector("#score").style.visibility = "hidden";
     i=0;
 }
 
