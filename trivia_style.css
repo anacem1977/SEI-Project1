@@ -1,3 +1,30 @@
+body {
+    text-align: center;
+    align-content: center;
+    max-width: 800px;
+    font-family: 'Balsamiq Sans', cursive;
+    border: 3px solid purple;
+    margin: auto;
+}
+
 li {
     list-style: none;
+}
+
+#content {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 10rem;
+    /*margin-left: 10%;
+    margin-right: 10%;*/
+    border: 2px solid red;
+}
+
+header {
+    font-family: 'Luckiest Guy', cursive;
+    border: 2px solid green;
+}
+
+#instructions {
+    border: 2px solid orange;
 }
