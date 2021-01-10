@@ -110,13 +110,6 @@ function checkAnswer(event) {
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
-    if (finalScore > 0) {
-        console.log("PLAYER WINS");
-    } else if (finalScore < 0) {
-        console.log("IGNORANCE WINS");
-    } else {
-        console.log("IT'S A TIE");
-    }
     return finalScore;
 }
 
@@ -146,7 +139,13 @@ function exitGame() {
     document.querySelector("#answer3").style.visibility = "hidden";
     document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
     document.querySelector("#subtitle").style.display = "initial";
-    document.querySelector("subtitle").innerText = "Winner!";
+    if (finalScore > 0) {
+        document.querySelector("#subtitle").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
+    } else if (finalScore < 0) {
+        document.querySelector("#subtitle").innerText = "The ignorance beat you by " + (-1 * finalScore) + " points!";
+    } else {
+        document.querySelector("#subtitle").innerText = "It's a tie!";
+    }
     document.querySelector("#playAgain").style.visibility = "initial";
     document.querySelector("#score").style.visibility = "hidden";
     console.log(finalScore);
