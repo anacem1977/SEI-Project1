@@ -19,7 +19,7 @@ let questionsDataBase = [
         question: "What is Mexico's official name (in English)",
         optA: "Republic of Mexico",
         optB: "Mexico",
-        optC: "United Mexican States",
+        optC: "Mexican United States",
         correct: "C"
     }
 ]
@@ -42,7 +42,8 @@ const exitBtn = document.querySelector("#exit");
 
 //BOTÓN NEXT
 const nextBtn = document.querySelector("#next");
-//PENDIENTE: event listener para el boton NEXT y código para salir
+nextBtn.addEventListener("click", nextQuestion);
+//PENDIENTE: event listener para el boton NEXT y código para siquiente pregunta
 
 //una vez que se valide la respuesta, las preguntas y respuestas se deben reemplazar por las siguientes
 
@@ -55,16 +56,18 @@ function checkEnter(event) {
 
 let yourScore = 0;
 let ignorance = 0;
+let i=0;
 
 function startGame() {
     //el  siguiente código debe ir moviéndose a través del array conforme se vaya respondiendo y registrando el score
-    document.querySelector("#question").innerText = questionsDataBase[0].question;
-    document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[0].optA;
-    document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[0].optB;
-    document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[0].optC;
+    document.querySelector("#question").innerText = questionsDataBase[i].question;
+    document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[i].optA;
+    document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[i].optB;
+    document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[i].optC;
     document.querySelector("#form").style.visibility = "initial";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
+    console.log("i= "+i);
 }
 
 function checkAnswer(event) {
@@ -79,9 +82,9 @@ function checkAnswer(event) {
     document.querySelector("#next").style.visibility = "initial";
     document.querySelector("#responseMsg").innerText = "";
     document.querySelector("#yourAnswer").value = "";
-    if (capAnswerInput === questionsDataBase[0].correct) {
+    if (capAnswerInput === questionsDataBase[i].correct) {
         yourScore += 1;
-        console.log(yourScore);
+        console.log("yourScore= "+yourScore);
         document.querySelector("#responseMsg").innerText = "That is correct!";
         document.querySelector("#form").style.visibility = "hidden";
     } else {
@@ -95,7 +98,19 @@ function checkAnswer(event) {
     }
     
 }
-    //LLEVAR REGISTRO DEL SCORE
+
+//LLEVAR REGISTRO DEL SCORE
+}
+
+function nextQuestion() {
+    console.log(questionsDataBase.length);
+    i ++;
+    if (i < questionsDataBase.length) {
+        document.querySelector("#next").style.visibility = "hidden";
+        startGame();
+    } else {
+        console.log("GAME OVER");
+    }
 }
 
 console.log(questionsDataBase.length);
