@@ -25,6 +25,7 @@ let questionsDataBase = [
 ]
 document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
+document.querySelector("#exit").style.visibility = "hidden";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -38,14 +39,11 @@ submitBtn.addEventListener("enter", checkEnter);
 
 //BOTÓN EXIT
 const exitBtn = document.querySelector("#exit");
-//PENDIENTE: event listener para el boton EXIT y código para salir
+exitBtn.addEventListener("click", exitGame);
 
 //BOTÓN NEXT
 const nextBtn = document.querySelector("#next");
 nextBtn.addEventListener("click", nextQuestion);
-//PENDIENTE: event listener para el boton NEXT y código para siquiente pregunta
-
-//una vez que se valide la respuesta, las preguntas y respuestas se deben reemplazar por las siguientes
 
 function checkEnter(event) {
     console.log(event);
@@ -59,7 +57,6 @@ let ignorance = 0;
 let i=0;
 
 function startGame() {
-    //el  siguiente código debe ir moviéndose a través del array conforme se vaya respondiendo y registrando el score
     document.querySelector("#question").innerText = questionsDataBase[i].question;
     document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[i].optA;
     document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[i].optB;
@@ -67,6 +64,7 @@ function startGame() {
     document.querySelector("#form").style.visibility = "initial";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
+    document.querySelector("#exit").style.visibility = "initial";
     console.log("i= "+i);
 }
 
@@ -92,14 +90,8 @@ function checkAnswer(event) {
         console.log(ignorance);
         document.querySelector("#responseMsg").innerText = "That is not correct!";
         document.querySelector("#form").style.visibility = "hidden";
-        //LIMPIAR
-        //SI LA RESPUESTA ES INCORRECTA PASAR A LA SIGUIENTE PREGUNTA
-        //BOTON NEXT
+        } 
     }
-    
-}
-
-//LLEVAR REGISTRO DEL SCORE
 }
 
 function nextQuestion() {
@@ -109,8 +101,24 @@ function nextQuestion() {
         document.querySelector("#next").style.visibility = "hidden";
         startGame();
     } else {
+        document.querySelector("#next").style.visibility = "hidden";
         console.log("GAME OVER");
+        exitGame();
+        //MOSTRAR REGISTRO DEL SCORE
     }
+}
+
+function exitGame() {
+    document.querySelector("#form").style.visibility = "hidden";
+    document.querySelector("#next").style.visibility = "hidden";
+    document.querySelector("#exit").style.visibility = "hidden";
+    document.querySelector("#responseMsg").style.visibility = "hidden";
+    document.querySelector("#question").style.visibility = "hidden";
+    document.querySelector("#answer1").style.visibility = "hidden";
+    document.querySelector("#answer2").style.visibility = "hidden";
+    document.querySelector("#answer3").style.visibility = "hidden";
+    document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
+    //AGREGAR BOTON PARA VOLVER A COMENZAR
 }
 
 console.log(questionsDataBase.length);
