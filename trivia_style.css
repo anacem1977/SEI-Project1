@@ -3,12 +3,13 @@ body {
     align-content: center;
     max-width: 800px;
     font-family: 'Balsamiq Sans', cursive;
-    border: 3px solid purple;
+    /*border: 3px solid purple;*/
     margin: auto;
     margin-top: 3rem;
-    /*background-image: url("images/zocaloCDMX.jpg");
+    background-image: url("images/zocaloCDMX2.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;*/
+    background-size: cover;
+    background-position: center top;
 }
 
 li {
@@ -16,38 +17,47 @@ li {
 }
 
 /*#content {
-    border: 2px solid red;
+    margin-top: 25%;
 }*/
 
 header {
     font-family: 'Luckiest Guy', cursive;
     /*border: 2px solid green;*/
+    letter-spacing: 1px;
 }
 
 #instructions {
-    border: 5px solid black;
+    border: 5px solid #652358;
+    border-radius: 5px;
     background-color: whitesmoke;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 15%;
+    margin: 10% 25% 0 25%;
     padding-bottom: 2rem;
+}
+
+#game {
+    margin: 25% 15% 0 15%;
+}
+
+#subtitle {
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 1px;
 }
 
 #start {
     font-family: 'Luckiest Guy', cursive;
     font-size: 18px;
-    background-color: #006847;
+    background-color: #339285;
     color: white;
     padding: 1rem;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #652358;
     letter-spacing: 2px;
 }
 
 #exit, #playAgain, #next, #submitAnsr {
     font-family: 'Luckiest Guy', cursive;
     font-size: 16px;
-    background-color: #006847;
+    background-color: #339285;
     color: white;
     padding: 1rem;
     border-radius: 5px;
@@ -75,6 +85,9 @@ header {
     display: flex;
     justify-content: center;
     font-size: 18px;
+    /*border: 5px solid #652358;
+    border-radius: 5px;
+    background-color: whitesmoke;*/
 }
 
 #yourScore, #ignorance {
@@ -107,10 +120,10 @@ header {
     margin-right: 1rem;
 }
 
-#form {
+/*#form {
     margin-bottom: 2rem;
-}
+}*/
 
-footer {
+/*footer {
     border: 2px palevioletred solid;
-}
+}*/

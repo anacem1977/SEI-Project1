@@ -77,7 +77,7 @@ document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
-document.querySelector("#score").style.visibility = "hidden";
+document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 
 //BOTÓN START
@@ -116,7 +116,7 @@ let finalScore = 0;
 
 function startGame() {
     document.querySelector("#question").innerText = questionsDataBase[i].question;
-    document.querySelector("#question").style.visibility= "initial";
+    document.querySelector("#question").style.display= "initial";
     document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[i].optA;
     document.querySelector("#answer1").style.visibility= "initial";
     document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[i].optB;
@@ -159,7 +159,7 @@ function checkAnswer(event) {
         document.querySelector("#form").style.visibility = "hidden";
         } 
     }
-    document.querySelector("#score").style.visibility = "initial";
+    document.querySelector("#score").style.display = "initial";
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
@@ -187,7 +187,7 @@ function exitGame() {
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
     document.querySelector("#responseMsg").style.visibility = "initial";
-    document.querySelector("#question").style.visibility = "hidden";
+    document.querySelector("#question").style.display = "none";
     document.querySelector("#answer1").style.visibility = "hidden";
     document.querySelector("#answer2").style.visibility = "hidden";
     document.querySelector("#answer3").style.visibility = "hidden";
@@ -202,21 +202,12 @@ function exitGame() {
         document.querySelector("#responseMsg").innerText = "It's a tie!";
     }
     document.querySelector("#playAgain").style.visibility = "initial";
-    document.querySelector("#score").style.visibility = "hidden";
+    document.querySelector("#score").style.display = "none";
     console.log(finalScore);
 }
 
 function playAgain() {
     location.reload();
-    /*document.querySelector("h1").innerText = "How much do you know about México?";
-    document.querySelector("#form").style.visibility = "hidden";
-    document.querySelector("#instructions").style.display = "initial";
-    document.querySelector("#start").style.display = "initial";
-    document.querySelector("#subtitle").style.display = "initial";
-    document.querySelector("#exit").style.visibility = "hidden";
-    document.querySelector("#playAgain").style.visibility = "hidden";
-    document.querySelector("#score").style.visibility = "hidden";
-    i=0;*/
 }
 
 console.log(questionsDataBase.length);
