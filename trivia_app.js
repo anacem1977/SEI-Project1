@@ -25,7 +25,7 @@ let questionsDataBase = [
     {
         question: "Which of the following was invented by a Mexican?",
         optA: "Washing machine",
-        optB: "Contraceptive Pill",
+        optB: "Birth Control Pill",
         optC: "Adhesive tape",
         correct: "B"
     },
@@ -73,12 +73,26 @@ let questionsDataBase = [
     }
 ]
 
+let imgSrc = [
+    "images/bandera.jpg",
+    "images/independencia.jpg",
+    "images/EUM.jpg",
+    "images/pill.jpg",
+    "images/1968.jpg",
+    "images/tomato",
+    "images/nuevaespana",
+    "images/poblacion",
+    "images/tequila",
+    "images/muertos"
+]
+
 document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.visibility = "hidden";
 document.querySelector("#correctAnswer").style.display = "none";
+document.querySelector("#imgToDisplay").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -134,6 +148,8 @@ function startGame() {
 
 function checkAnswer(event) {
     event.preventDefault();
+    document.querySelector("#imgToDisplay").style.display = "initial";
+    document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[i])
     const answerInput = document.querySelector("#yourAnswer").value;
     const capAnswerInput = answerInput.toUpperCase();
     console.log(capAnswerInput);
@@ -170,6 +186,7 @@ function checkAnswer(event) {
 
 function nextQuestion() {
     i ++;
+    document.querySelector("#imgToDisplay").style.display = "none";
     if (i < questionsDataBase.length) {
         document.querySelector("#next").style.visibility = "hidden";
         document.querySelector("#responseMsg").style.display = "none";
@@ -180,7 +197,6 @@ function nextQuestion() {
         document.querySelector("#responseMsg").style.display = "none";
         console.log("GAME OVER");
         exitGame();
-        //MOSTRAR REGISTRO DEL SCORE
     }
 }
 
