@@ -86,11 +86,11 @@ let imgSrc = [
     "images/muertos.jpg"
 ]
 
-document.querySelector("#form").style.visibility = "hidden";
+document.querySelector("#form").style.display = "none";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
-document.querySelector("#score").style.visibility = "hidden";
+document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 document.querySelector("#imgToDisplay").style.display = "none";
 
@@ -99,9 +99,9 @@ const startBtn = document.querySelector("#start");
 startBtn.addEventListener("click", startGame);
 
 //BOTÓN SUBMIT
-const submitBtn = document.querySelector("#submitAnsr");
+/*const submitBtn = document.querySelector("#submitAnsr");
 submitBtn.addEventListener("click", checkAnswer);
-submitBtn.addEventListener("enter", checkEnter);
+submitBtn.addEventListener("enter", checkEnter);*/
 //no funciona con ENTER :(
 
 //BOTÓN EXIT
@@ -118,33 +118,18 @@ playAgn.addEventListener("click", playAgain);
 
 //SELECCIÓN RESPUESTA
 const selectAnswer1 = document.querySelector("#answer1");
-selectAnswer1.addEventListener("click", dummyFunction);
+selectAnswer1.addEventListener("click", checkAnswer);
 const selectAnswer2 = document.querySelector("#answer2");
-selectAnswer2.addEventListener("click", dummyFunction);
+selectAnswer2.addEventListener("click", checkAnswer);
 const selectAnswer3 = document.querySelector("#answer3");
-selectAnswer3.addEventListener("click", dummyFunction);
+selectAnswer3.addEventListener("click", checkAnswer);
 
-let dummyVariable = "";
-let dummyResponse = "";
-function dummyFunction(event) {
-    event.target.id;
-    dummyVariable = event.target.id;
-    if (dummyVariable === "answer1") {
-        dummyResponse = "A";
-    } else if (dummyVariable === "answer2") {
-        dummyResponse = "B";
-    } else {
-        dummyResponse = "C"
-    }
-    console.log(dummyResponse);
-}
-
-function checkEnter(event) {
+/*function checkEnter(event) {
     console.log(event);
     if (event.keyCode === 13) {
         checkAnswer(event)
     }
-}
+}*/
 
 let yourScore = 0;
 let ignorance = 0;
@@ -160,7 +145,7 @@ function startGame() {
     document.querySelector("#answer2").style.visibility= "initial";
     document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[i].optC;
     document.querySelector("#answer3").style.visibility= "initial";
-    document.querySelector("#form").style.visibility = "initial";
+    //document.querySelector("#form").style.visibility = "initial";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#exit").style.visibility = "initial";
@@ -171,17 +156,27 @@ function startGame() {
 
 function checkAnswer(event) {
     event.preventDefault();
-    const answerInput = document.querySelector("#yourAnswer").value;
+    answerInput = event.target.id;
+    if (answerInput === "answer1") {
+        capAnswerInput = "A";
+    } else if (answerInput === "answer2") {
+        capAnswerInput = "B";
+    } else {
+        capAnswerInput = "C"
+    }
+    //console.log(dummyResponse);
+    /*const answerInput = document.querySelector("#yourAnswer").value;
     const capAnswerInput = answerInput.toUpperCase();
-    console.log(capAnswerInput);
+    capAnswerInput = dummyResponse;
+    console.log(capAnswerInput);*/
     if (capAnswerInput !== "A" && capAnswerInput !== "B" && capAnswerInput !== "C") {
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = capAnswerInput + " is not a valid option";
-        document.querySelector("#yourAnswer").value = "";
+        //document.querySelector("#yourAnswer").value = "";
     } else {
     document.querySelector("#next").style.visibility = "initial";
     document.querySelector("#responseMsg").innerText = "";
-    document.querySelector("#yourAnswer").value = "";
+    //document.querySelector("#yourAnswer").value = "";
     if (capAnswerInput === questionsDataBase[i].correct) {
         yourScore += 1;
         document.querySelector("#imgToDisplay").style.display = "initial";
@@ -189,7 +184,7 @@ function checkAnswer(event) {
         console.log("yourScore= "+yourScore);
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
-        document.querySelector("#form").style.visibility = "hidden";
+        //document.querySelector("#form").style.visibility = "hidden";
     } else {
         ignorance += 1;
         console.log(ignorance);
@@ -199,10 +194,10 @@ function checkAnswer(event) {
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
         document.querySelector("#correctAnswer").style.display = "initial"
         document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[i].correct;
-        document.querySelector("#form").style.visibility = "hidden";
+        //document.querySelector("#form").style.visibility = "hidden";
         } 
     }
-    document.querySelector("#score").style.visibility = "initial";
+    document.querySelector("#score").style.display = "initial";
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
@@ -226,7 +221,7 @@ function nextQuestion() {
 }
 
 function exitGame() {
-    document.querySelector("#form").style.visibility = "hidden";
+    //document.querySelector("#form").style.visibility = "hidden";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
     document.querySelector("#responseMsg").style.display = "initial";
@@ -246,7 +241,7 @@ function exitGame() {
         document.querySelector("#responseMsg").innerText = "It's a tie!";
     }
     document.querySelector("#playAgain").style.visibility = "initial";
-    document.querySelector("#score").style.visibility = "hidden";
+    document.querySelector("#score").style.display = "none";
     console.log(finalScore);
 }
 

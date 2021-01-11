@@ -31,6 +31,7 @@ header {
 #game {
     margin: 5% 15% 0 15%;
     padding-top: 2rem;
+    cursor: pointer;
 }
 
 #subtitle {
@@ -78,7 +79,7 @@ header {
 #score {
     display: flex;
     font-size: 18px;
-    /*align-content: space-around;*/
+    align-content: flex-end;
     background-color: whitesmoke;
     margin-bottom: 1rem;
 }
@@ -114,9 +115,9 @@ header {
     float: none;
 }
 
-p {
+/*p {
     margin-left: 1rem;
-}
+}*/
 
 #playAgain {
     margin-top: 2rem;
