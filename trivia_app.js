@@ -206,7 +206,8 @@ function exitGame() {
 }
 
 function playAgain() {
-    document.querySelector("h1").innerText = "How much do you know about México?";
+    location.reload();
+    /*document.querySelector("h1").innerText = "How much do you know about México?";
     document.querySelector("#form").style.visibility = "hidden";
     document.querySelector("#instructions").style.display = "initial";
     document.querySelector("#start").style.display = "initial";
@@ -214,7 +215,7 @@ function playAgain() {
     document.querySelector("#exit").style.visibility = "hidden";
     document.querySelector("#playAgain").style.visibility = "hidden";
     document.querySelector("#score").style.visibility = "hidden";
-    i=0;
+    i=0;*/
 }
 
 console.log(questionsDataBase.length);

@@ -43,7 +43,7 @@ header {
     letter-spacing: 2px;
 }
 
-#exit, #playAgain {
+#exit, #playAgain, #next, #submitAnsr {
     font-family: 'Luckiest Guy', cursive;
     font-size: 16px;
     background-color: #006847;
@@ -62,4 +62,23 @@ header {
 #listOfQuestions {
     font-size: 24px;
     text-align: left;
+    border: 2px cyan solid;
+    padding-left: 25%
+}
+
+#score {
+    display: flex;
+
+}
+
+#submitAnsr {
+    float: none;
+}
+
+#yourAnswer {
+    background-color: whitesmoke;
+    font-size: 18px;
+    font-family: 'Balsamiq Sans', cursive;
+    height: 2rem;
+    margin-right: 1rem;
 }
