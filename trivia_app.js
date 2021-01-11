@@ -186,19 +186,20 @@ function exitGame() {
     document.querySelector("#form").style.visibility = "hidden";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
-    document.querySelector("#responseMsg").style.visibility = "hidden";
+    document.querySelector("#responseMsg").style.visibility = "initial";
     document.querySelector("#question").style.visibility = "hidden";
     document.querySelector("#answer1").style.visibility = "hidden";
     document.querySelector("#answer2").style.visibility = "hidden";
     document.querySelector("#answer3").style.visibility = "hidden";
     document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
-    document.querySelector("#subtitle").style.display = "initial";
+    document.querySelector("#subtitle").style.display = "none";
+    document.querySelector("#correctAnswer").style.display = "none";
     if (finalScore > 0) {
-        document.querySelector("#subtitle").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
+        document.querySelector("#responseMsg").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
     } else if (finalScore < 0) {
-        document.querySelector("#subtitle").innerText = "The ignorance beat you by " + (-1 * finalScore) + " points!";
+        document.querySelector("#responseMsg").innerText = "The ignorance beat you by " + (-1 * finalScore) + " points!";
     } else {
-        document.querySelector("#subtitle").innerText = "It's a tie!";
+        document.querySelector("#responseMsg").innerText = "It's a tie!";
     }
     document.querySelector("#playAgain").style.visibility = "initial";
     document.querySelector("#score").style.visibility = "hidden";
