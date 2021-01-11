@@ -116,6 +116,29 @@ nextBtn.addEventListener("click", nextQuestion);
 const playAgn = document.querySelector("#playAgain");
 playAgn.addEventListener("click", playAgain);
 
+//SELECCIÓN RESPUESTA
+const selectAnswer1 = document.querySelector("#answer1");
+selectAnswer1.addEventListener("click", dummyFunction);
+const selectAnswer2 = document.querySelector("#answer2");
+selectAnswer2.addEventListener("click", dummyFunction);
+const selectAnswer3 = document.querySelector("#answer3");
+selectAnswer3.addEventListener("click", dummyFunction);
+
+let dummyVariable = "";
+let dummyResponse = "";
+function dummyFunction(event) {
+    event.target.id;
+    dummyVariable = event.target.id;
+    if (dummyVariable === "answer1") {
+        dummyResponse = "A";
+    } else if (dummyVariable === "answer2") {
+        dummyResponse = "B";
+    } else {
+        dummyResponse = "C"
+    }
+    console.log(dummyResponse);
+}
+
 function checkEnter(event) {
     console.log(event);
     if (event.keyCode === 13) {
@@ -131,7 +154,7 @@ let finalScore = 0;
 function startGame() {
     document.querySelector("#question").innerText = questionsDataBase[i].question;
     document.querySelector("#question").style.display= "initial";
-    document.querySelector("#answer1").innerText = "A. "+ questionsDataBase[i].optA;
+    document.querySelector("#answer1").innerText= "A. "+ questionsDataBase[i].optA;
     document.querySelector("#answer1").style.visibility= "initial";
     document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[i].optB;
     document.querySelector("#answer2").style.visibility= "initial";
@@ -148,8 +171,6 @@ function startGame() {
 
 function checkAnswer(event) {
     event.preventDefault();
-    document.querySelector("#imgToDisplay").style.display = "initial";
-    document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[i])
     const answerInput = document.querySelector("#yourAnswer").value;
     const capAnswerInput = answerInput.toUpperCase();
     console.log(capAnswerInput);
@@ -163,6 +184,8 @@ function checkAnswer(event) {
     document.querySelector("#yourAnswer").value = "";
     if (capAnswerInput === questionsDataBase[i].correct) {
         yourScore += 1;
+        document.querySelector("#imgToDisplay").style.display = "initial";
+        document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[i])
         console.log("yourScore= "+yourScore);
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
@@ -170,6 +193,8 @@ function checkAnswer(event) {
     } else {
         ignorance += 1;
         console.log(ignorance);
+        document.querySelector("#imgToDisplay").style.display = "initial";
+        document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[i])
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
         document.querySelector("#correctAnswer").style.display = "initial"
