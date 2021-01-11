@@ -3,7 +3,6 @@ body {
     align-content: center;
     max-width: 800px;
     font-family: 'Balsamiq Sans', cursive;
-    /*border: 3px solid purple;*/
     margin: auto;
     margin-top: 3rem;
     background-image: url("images/zocaloCDMX2.jpg");
@@ -18,20 +17,24 @@ li {
 
 header {
     font-family: 'Luckiest Guy', cursive;
-    /*border: 2px solid green;*/
     letter-spacing: 1px;
 }
 
 #instructions {
-    border: 5px solid #652358;
+    border: 5px solid #ce1126;
     border-radius: 5px;
     background-color: whitesmoke;
     margin: 10% 25% 0 25%;
     padding-bottom: 2rem;
 }
 
-#game, #score {
+#score {
     margin: 15% 15% 0 15%;
+}
+
+#game {
+    margin: 5% 15% 0 15%;
+    padding-top: 2rem;
 }
 
 #subtitle {
@@ -42,18 +45,18 @@ header {
 #start {
     font-family: 'Luckiest Guy', cursive;
     font-size: 18px;
-    background-color: #339285;
+    background-color: #006847;
     color: white;
     padding: 1rem;
     border-radius: 5px;
-    border: 1px solid #652358;
+    border: 1px solid black;
     letter-spacing: 2px;
 }
 
 #exit, #playAgain, #next, #submitAnsr {
     font-family: 'Luckiest Guy', cursive;
     font-size: 16px;
-    background-color: #339285;
+    background-color: #006847;
     color: white;
     padding: 1rem;
     border-radius: 5px;
@@ -73,7 +76,6 @@ header {
 #listOfQuestions {
     font-size: 24px;
     text-align: left;
-    /*border: 2px cyan solid;*/
     padding-left: 25%
 }
 
@@ -108,23 +110,19 @@ header {
 #exit {
     margin-top: 2rem;
     background-color: #ce1126;
-    float: left;
     margin-left: 2rem;
 }
 
 #next {
     margin-right: 1rem;
     margin-top: 2rem;
+    float: left;
 }
 
 #playAgain {
     margin-top: 2rem;
 }
 
-/*#form {
-    margin-bottom: 2rem;
-}*/
-
-/*footer {
-    border: 2px palevioletred solid;
-}*/
+#content {
+    align-content: center;
+}

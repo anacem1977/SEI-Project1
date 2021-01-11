@@ -65,11 +65,11 @@ let questionsDataBase = [
         correct: "C"
     },
     {
-        question: "What is México's official name (in English)",
-        optA: "Republic of México",
-        optB: "México",
-        optC: "Mexican United States",
-        correct: "C"
+        question: "When does México celebrate the \"Day of the Dead\"?",
+        optA: "November 2nd",
+        optB: "May 5th",
+        optC: "October 31st",
+        correct: "A"
     }
 ]
 
@@ -128,8 +128,8 @@ function startGame() {
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#exit").style.visibility = "initial";
     console.log("i= "+i);
-    document.querySelector("#content").style.backgroundColor = "whitesmoke";
-    document.querySelector("#content").style.border = "5px solid #652358";
+    document.querySelector("#game").style.backgroundColor = "whitesmoke";
+    document.querySelector("#game").style.border = "5px solid #ce1126";
 }
 
 function checkAnswer(event) {
@@ -138,7 +138,7 @@ function checkAnswer(event) {
     const capAnswerInput = answerInput.toUpperCase();
     console.log(capAnswerInput);
     if (capAnswerInput !== "A" && capAnswerInput !== "B" && capAnswerInput !== "C") {
-        document.querySelector("#responseMsg").style.visibility = "initial"
+        document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = capAnswerInput + " is not a valid option";
         document.querySelector("#yourAnswer").value = "";
     } else {
@@ -148,13 +148,13 @@ function checkAnswer(event) {
     if (capAnswerInput === questionsDataBase[i].correct) {
         yourScore += 1;
         console.log("yourScore= "+yourScore);
-        document.querySelector("#responseMsg").style.visibility = "initial"
+        document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
         document.querySelector("#form").style.visibility = "hidden";
     } else {
         ignorance += 1;
         console.log(ignorance);
-        document.querySelector("#responseMsg").style.visibility = "initial"
+        document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
         document.querySelector("#correctAnswer").style.display = "initial"
         document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[i].correct;
@@ -172,12 +172,12 @@ function nextQuestion() {
     i ++;
     if (i < questionsDataBase.length) {
         document.querySelector("#next").style.visibility = "hidden";
-        document.querySelector("#responseMsg").style.visibility = "hidden";
+        document.querySelector("#responseMsg").style.display = "none";
         document.querySelector("#correctAnswer").style.display = "none";
         startGame();
     } else {
         document.querySelector("#next").style.visibility = "hidden";
-        document.querySelector("#responseMsg").style.visibility = "hidden";
+        document.querySelector("#responseMsg").style.display = "none";
         console.log("GAME OVER");
         exitGame();
         //MOSTRAR REGISTRO DEL SCORE
@@ -188,7 +188,7 @@ function exitGame() {
     document.querySelector("#form").style.visibility = "hidden";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
-    document.querySelector("#responseMsg").style.visibility = "initial";
+    document.querySelector("#responseMsg").style.display = "initial";
     document.querySelector("#question").style.display = "none";
     document.querySelector("#answer1").style.visibility = "hidden";
     document.querySelector("#answer2").style.visibility = "hidden";
