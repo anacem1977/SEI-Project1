@@ -55,6 +55,10 @@ header {
     letter-spacing: 2px;
 }
 
+#responseMsg {
+    font-family: 'Luckiest Guy', cursive;
+}
+
 #question {
     font-size: 30px;
 }
@@ -68,7 +72,15 @@ header {
 
 #score {
     display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
 
+#yourScore, #ignorance {
+    margin: 0 1rem 1rem 1rem;
+    font-size: 18px;
+    width: 3rem;
+    text-align: center;
 }
 
 #submitAnsr {
@@ -81,4 +93,16 @@ header {
     font-family: 'Balsamiq Sans', cursive;
     height: 2rem;
     margin-right: 1rem;
+}
+
+#exit {
+    margin-top: 2rem;
+}
+
+#exit, #next {
+    margin-right: 1rem;
+}
+
+#form {
+    margin-bottom: 2rem;
 }

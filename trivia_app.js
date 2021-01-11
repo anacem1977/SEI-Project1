@@ -78,7 +78,7 @@ document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.visibility = "hidden";
-document.querySelector("#correctAnswer").style.visibility = "hidden";
+document.querySelector("#correctAnswer").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -154,7 +154,7 @@ function checkAnswer(event) {
         console.log(ignorance);
         document.querySelector("#responseMsg").style.visibility = "initial"
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
-        document.querySelector("#correctAnswer").style.visibility = "initial"
+        document.querySelector("#correctAnswer").style.display = "initial"
         document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[i].correct;
         document.querySelector("#form").style.visibility = "hidden";
         } 
@@ -171,7 +171,7 @@ function nextQuestion() {
     if (i < questionsDataBase.length) {
         document.querySelector("#next").style.visibility = "hidden";
         document.querySelector("#responseMsg").style.visibility = "hidden";
-        document.querySelector("#correctAnswer").style.visibility = "hidden"
+        document.querySelector("#correctAnswer").style.display = "none";
         startGame();
     } else {
         document.querySelector("#next").style.visibility = "hidden";
