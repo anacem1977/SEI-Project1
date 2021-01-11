@@ -28,10 +28,6 @@ header {
     padding-bottom: 2rem;
 }
 
-#score {
-    margin: 15% 15% 0 15%;
-}
-
 #game {
     margin: 5% 15% 0 15%;
     padding-top: 2rem;
@@ -82,13 +78,13 @@ header {
 #score {
     display: flex;
     font-size: 18px;
-    align-content: center;
+    /*align-content: space-around;*/
     background-color: whitesmoke;
-    margin-top: 0
+    margin-bottom: 1rem;
 }
 
 #yourScore, #ignorance {
-    margin: 0 1rem 1rem 1rem;
+    margin: 0 1rem 0 1rem;
     font-size: 18px;
     width: 3rem;
     text-align: center;
@@ -114,9 +110,12 @@ header {
 }
 
 #next {
-    margin-right: 1rem;
-    margin-top: 2rem;
-    float: left;
+    margin-left: 1rem;
+    float: none;
+}
+
+p {
+    margin-left: 1rem;
 }
 
 #playAgain {

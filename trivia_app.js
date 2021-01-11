@@ -79,11 +79,11 @@ let imgSrc = [
     "images/EUM.jpg",
     "images/pill.jpg",
     "images/1968.jpg",
-    "images/tomato",
-    "images/nuevaespana",
-    "images/poblacion",
-    "images/tequila",
-    "images/muertos"
+    "images/tomato.jpeg",
+    "images/nuevaespana.jpg",
+    "images/poblacion.jpg",
+    "images/tequila.jpg",
+    "images/muertos.jpg"
 ]
 
 document.querySelector("#form").style.visibility = "hidden";
@@ -212,6 +212,7 @@ function exitGame() {
     document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#correctAnswer").style.display = "none";
+    document.querySelector("#imgToDisplay").style.display = "none";
     if (finalScore > 0) {
         document.querySelector("#responseMsg").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
     } else if (finalScore < 0) {
