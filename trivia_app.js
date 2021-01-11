@@ -77,7 +77,7 @@ document.querySelector("#form").style.visibility = "hidden";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
-document.querySelector("#score").style.display = "none";
+document.querySelector("#score").style.visibility = "hidden";
 document.querySelector("#correctAnswer").style.display = "none";
 
 //BOTÓN START
@@ -128,6 +128,8 @@ function startGame() {
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#exit").style.visibility = "initial";
     console.log("i= "+i);
+    document.querySelector("#content").style.backgroundColor = "whitesmoke";
+    document.querySelector("#content").style.border = "5px solid #652358";
 }
 
 function checkAnswer(event) {
@@ -159,7 +161,7 @@ function checkAnswer(event) {
         document.querySelector("#form").style.visibility = "hidden";
         } 
     }
-    document.querySelector("#score").style.display = "initial";
+    document.querySelector("#score").style.visibility = "initial";
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
@@ -202,7 +204,7 @@ function exitGame() {
         document.querySelector("#responseMsg").innerText = "It's a tie!";
     }
     document.querySelector("#playAgain").style.visibility = "initial";
-    document.querySelector("#score").style.display = "none";
+    document.querySelector("#score").style.visibility = "hidden";
     console.log(finalScore);
 }
 

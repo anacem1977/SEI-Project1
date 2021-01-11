@@ -16,10 +16,6 @@ li {
     list-style: none;
 }
 
-/*#content {
-    margin-top: 25%;
-}*/
-
 header {
     font-family: 'Luckiest Guy', cursive;
     /*border: 2px solid green;*/
@@ -34,8 +30,8 @@ header {
     padding-bottom: 2rem;
 }
 
-#game {
-    margin: 25% 15% 0 15%;
+#game, #score {
+    margin: 15% 15% 0 15%;
 }
 
 #subtitle {
@@ -83,11 +79,10 @@ header {
 
 #score {
     display: flex;
-    justify-content: center;
     font-size: 18px;
-    /*border: 5px solid #652358;
-    border-radius: 5px;
-    background-color: whitesmoke;*/
+    align-content: center;
+    background-color: whitesmoke;
+    margin-top: 0
 }
 
 #yourScore, #ignorance {
@@ -99,6 +94,7 @@ header {
 
 #submitAnsr {
     float: none;
+    margin-bottom: 1rem;
 }
 
 #yourAnswer {
@@ -118,6 +114,11 @@ header {
 
 #next {
     margin-right: 1rem;
+    margin-top: 2rem;
+}
+
+#playAgain {
+    margin-top: 2rem;
 }
 
 /*#form {
