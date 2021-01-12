@@ -86,7 +86,7 @@ let questionsDataBase = [
 let imgSrc = [
     "images/bandera.jpg",
     "images/independencia.jpg",
-    "images/EUM.jpg",
+    "images/EUM2.png",
     "images/pill.jpg",
     "images/1968.jpg",
     "images/tomato.jpeg",
@@ -97,7 +97,7 @@ let imgSrc = [
 ];
 
 //FISHER-YATES ALGORITHM TO SHUFFLE AN ARRAY
-//tutorialspoint.com/what-is-fisher-yates-shuffle-in.javascript
+//tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript
 let myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let j = 0;
 let k = 0;
@@ -175,7 +175,6 @@ function startGame() {
 
 function confirmExit(event) {
     event.preventDefault();
-    console.log(i);
     modal.style.display = "block";
     document.querySelector("#game").style.opacity= "0";
     document.querySelector("#exit").style.opacity= "0";
@@ -206,12 +205,10 @@ function checkAnswer(event) {
         yourScore += 1;
         document.querySelector("#imgToDisplay").style.display = "initial";
         document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[myArray[i]])
-        console.log("yourScore= "+yourScore);
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
     } else {
         ignorance += 1;
-        console.log(ignorance);
         document.querySelector("#imgToDisplay").style.display = "initial";
         document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[myArray[i]])
         document.querySelector("#responseMsg").style.display = "initial";
@@ -227,6 +224,7 @@ function checkAnswer(event) {
 }
 
 function nextQuestion(event) {
+    console.log(i);
     i ++;
     event.preventDefault();
     document.querySelector("#imgToDisplay").style.display = "none";
@@ -241,13 +239,12 @@ function nextQuestion(event) {
     } else {
         document.querySelector("#next").style.visibility = "hidden";
         document.querySelector("#responseMsg").style.display = "none";
-        console.log("GAME OVER");
         exitGame();
     }
 }
 
 function exitGame(event) {
-    event.preventDefault(event);
+    event.preventDefault();
     document.querySelector("#game").style.opacity= "1";
     document.querySelector("#myModal").style.display = "none";
     document.querySelector("#next").style.visibility = "hidden";
@@ -263,7 +260,7 @@ function exitGame(event) {
     document.querySelector("#imgToDisplay").style.display = "none";
     document.querySelector("#finalMsg").style.display = "initial";
     if (finalScore > 0) {
-        document.querySelector("#finalMsg").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
+        document.querySelector("#finalMsg").innerText = "You won and beat the ignorance by " + finalScore+ " points !";
     } else if (finalScore < 0) {
         document.querySelector("#finalMsg").innerText = "The ignorance beat you by " + (-1 * finalScore) + " points!";
     } else {
@@ -271,11 +268,8 @@ function exitGame(event) {
     }
     document.querySelector("#playAgain").style.visibility = "initial";
     document.querySelector("#score").style.display = "none";
-    console.log(finalScore);
 }
 
 function playAgain() {
     location.reload();
 }
-
-console.log(questionsDataBase.length);
