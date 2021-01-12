@@ -9,7 +9,7 @@ let questionsDataBase = [
         correct: "A"
     },
     {
-        question: "When does México celebrates Independence Day?",
+        question: "When does México celebrate Independence Day?",
         optA: "May 5th",
         optB: "September 16th",
         optC: "November 20th",
@@ -93,6 +93,7 @@ document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 document.querySelector("#imgToDisplay").style.display = "none";
+//document.querySelector("#finalMsg").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -197,7 +198,7 @@ function checkAnswer(event) {
         //document.querySelector("#form").style.visibility = "hidden";
         } 
     }
-    document.querySelector("#score").style.display = "initial";
+    document.querySelector("#score").style.display = "flex";
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
