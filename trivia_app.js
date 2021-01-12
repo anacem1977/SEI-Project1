@@ -84,7 +84,25 @@ let imgSrc = [
     "images/poblacion.jpg",
     "images/tequila.jpg",
     "images/muertos.jpg"
-]
+];
+
+//FISHER-YATES ALGORITHM TO SHUFFLE AN ARRAY
+//tutorialspoint.com/what-is-fisher-yates-shuffle-in.javascript
+
+let myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let j = 0;
+let k = 0;
+let temp = 0;
+function shuffle(myArray) {
+    for (j = myArray.length -1; j > 0; j--) {
+        k = Math.floor(Math.random() * (j + 1));
+        temp = myArray[k];
+        myArray[k] = myArray[j];
+        myArray[j] = temp
+    }
+}
+shuffle(myArray);
 
 document.querySelector("#form").style.display = "none";
 document.querySelector("#next").style.visibility = "hidden";
@@ -124,13 +142,13 @@ let i=0;
 let finalScore = 0;
 
 function startGame() {
-    document.querySelector("#question").innerText = questionsDataBase[i].question;
+    document.querySelector("#question").innerText = questionsDataBase[myArray[i]].question;
     document.querySelector("#question").style.display= "initial";
-    document.querySelector("#answer1").innerText= "A. "+ questionsDataBase[i].optA;
+    document.querySelector("#answer1").innerText= "A. "+ questionsDataBase[myArray[i]].optA;
     document.querySelector("#answer1").style.visibility= "initial";
-    document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[i].optB;
+    document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[myArray[i]].optB;
     document.querySelector("#answer2").style.visibility= "initial";
-    document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[i].optC;
+    document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[myArray[i]].optC;
     document.querySelector("#answer3").style.visibility= "initial";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
@@ -152,10 +170,10 @@ function checkAnswer(event) {
     }
     document.querySelector("#next").style.visibility = "initial";
     document.querySelector("#responseMsg").innerText = "";
-    if (capAnswerInput === questionsDataBase[i].correct) {
+    if (capAnswerInput === questionsDataBase[myArray[i]].correct) {
         yourScore += 1;
         document.querySelector("#imgToDisplay").style.display = "initial";
-        document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[i])
+        document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[myArray[i]])
         console.log("yourScore= "+yourScore);
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
@@ -163,11 +181,11 @@ function checkAnswer(event) {
         ignorance += 1;
         console.log(ignorance);
         document.querySelector("#imgToDisplay").style.display = "initial";
-        document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[i])
+        document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[myArray[i]])
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
         document.querySelector("#correctAnswer").style.display = "initial"
-        document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[i].correct;
+        document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[myArray[i]].correct;
         } 
     document.querySelector("#score").style.display = "flex";
     document.querySelector("#yourScore").value = yourScore;

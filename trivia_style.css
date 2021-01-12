@@ -7,8 +7,8 @@ body {
     margin-top: 3rem;
     background-image: url("images/zocaloCDMX2.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+    background-size: 100%;
+    /*background-position: center top;*/
 }
 
 li {
