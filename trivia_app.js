@@ -145,6 +145,12 @@ selectAnswer2.addEventListener("click", checkAnswer);
 const selectAnswer3 = document.querySelector("#answer3");
 selectAnswer3.addEventListener("click", checkAnswer);
 
+//MODAL
+const modal = document.getElementById("myModal");
+const confirmYes = document.getElementById("exitYes");
+confirmYes.addEventListener("click", exitGame)
+const confirmNo = document.getElementById("exitNo");
+
 let yourScore = 0;
 let ignorance = 0;
 let i=0;
@@ -166,26 +172,21 @@ function startGame() {
     document.querySelector("#game").style.border = "5px solid #ce1126";
 }
 
-let modal=document.getElementById("myModal");
-let button=document.getElementById("exit");
-let spanYes=document.getElementById("exitYes");
-let spanNo=document.getElementById("exitNo");
-
-function confirmExit() {
+function confirmExit(event) {
+    event.preventDefault();
     console.log(i);
     modal.style.display = "block";
     document.querySelector("#question").style.display= "none";
     document.querySelector("#answer1").style.display= "none";
     document.querySelector("#answer2").style.display= "none";
     document.querySelector("#answer3").style.display= "none";
+    document.querySelector("#exit").style.display= "none";
+    document.querySelector("#next").style.display= "none";
+    document.querySelector("#responseMsg").style.display = "none";
+    document.querySelector("#imgToDisplay").style.display = "none";
+    document.querySelector("#correctAnswer").style.display = "none";
 }
-
-/*spanYes.onclick = function() {
-    modal.style.display = "none";
-}
-spanNo.onclick = function() {
-    modal.style.display = "none";
-}
+/*
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -218,9 +219,9 @@ function checkAnswer(event) {
         console.log(ignorance);
         document.querySelector("#imgToDisplay").style.display = "initial";
         document.querySelector("#imgToDisplay").setAttribute("src", imgSrc[myArray[i]])
-        document.querySelector("#responseMsg").style.display = "initial"
+        document.querySelector("#responseMsg").style.display = "initial";
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
-        document.querySelector("#correctAnswer").style.display = "initial"
+        document.querySelector("#correctAnswer").style.display = "initial";
         document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[myArray[i]].correctAns;
         } 
     document.querySelector("#score").style.display = "flex";
@@ -230,8 +231,9 @@ function checkAnswer(event) {
     return finalScore;
 }
 
-function nextQuestion() {
+function nextQuestion(event) {
     i ++;
+    event.preventDefault();
     document.querySelector("#imgToDisplay").style.display = "none";
     document.querySelector("#answer1").style.display= "block";
     document.querySelector("#answer2").style.display= "block";
@@ -249,7 +251,9 @@ function nextQuestion() {
     }
 }
 
-function exitGame() {
+function exitGame(event) {
+    event.preventDefault(event);
+    document.querySelector("#myModal").style.display = "none";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
     document.querySelector("#responseMsg").style.display = "none";
