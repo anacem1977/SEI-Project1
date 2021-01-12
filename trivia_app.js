@@ -93,17 +93,10 @@ document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 document.querySelector("#imgToDisplay").style.display = "none";
-//document.querySelector("#finalMsg").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
 startBtn.addEventListener("click", startGame);
-
-//BOTÓN SUBMIT
-/*const submitBtn = document.querySelector("#submitAnsr");
-submitBtn.addEventListener("click", checkAnswer);
-submitBtn.addEventListener("enter", checkEnter);*/
-//no funciona con ENTER :(
 
 //BOTÓN EXIT
 const exitBtn = document.querySelector("#exit");
@@ -125,13 +118,6 @@ selectAnswer2.addEventListener("click", checkAnswer);
 const selectAnswer3 = document.querySelector("#answer3");
 selectAnswer3.addEventListener("click", checkAnswer);
 
-/*function checkEnter(event) {
-    console.log(event);
-    if (event.keyCode === 13) {
-        checkAnswer(event)
-    }
-}*/
-
 let yourScore = 0;
 let ignorance = 0;
 let i=0;
@@ -146,7 +132,6 @@ function startGame() {
     document.querySelector("#answer2").style.visibility= "initial";
     document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[i].optC;
     document.querySelector("#answer3").style.visibility= "initial";
-    //document.querySelector("#form").style.visibility = "initial";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#exit").style.visibility = "initial";
@@ -165,19 +150,8 @@ function checkAnswer(event) {
     } else {
         capAnswerInput = "C"
     }
-    //console.log(dummyResponse);
-    /*const answerInput = document.querySelector("#yourAnswer").value;
-    const capAnswerInput = answerInput.toUpperCase();
-    capAnswerInput = dummyResponse;
-    console.log(capAnswerInput);*/
-    if (capAnswerInput !== "A" && capAnswerInput !== "B" && capAnswerInput !== "C") {
-        document.querySelector("#responseMsg").style.display = "initial"
-        document.querySelector("#responseMsg").innerText = capAnswerInput + " is not a valid option";
-        //document.querySelector("#yourAnswer").value = "";
-    } else {
     document.querySelector("#next").style.visibility = "initial";
     document.querySelector("#responseMsg").innerText = "";
-    //document.querySelector("#yourAnswer").value = "";
     if (capAnswerInput === questionsDataBase[i].correct) {
         yourScore += 1;
         document.querySelector("#imgToDisplay").style.display = "initial";
@@ -185,7 +159,6 @@ function checkAnswer(event) {
         console.log("yourScore= "+yourScore);
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is correct!";
-        //document.querySelector("#form").style.visibility = "hidden";
     } else {
         ignorance += 1;
         console.log(ignorance);
@@ -195,9 +168,7 @@ function checkAnswer(event) {
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
         document.querySelector("#correctAnswer").style.display = "initial"
         document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[i].correct;
-        //document.querySelector("#form").style.visibility = "hidden";
         } 
-    }
     document.querySelector("#score").style.display = "flex";
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
@@ -222,10 +193,9 @@ function nextQuestion() {
 }
 
 function exitGame() {
-    //document.querySelector("#form").style.visibility = "hidden";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
-    document.querySelector("#responseMsg").style.display = "initial";
+    document.querySelector("#responseMsg").style.display = "none";
     document.querySelector("#question").style.display = "none";
     document.querySelector("#answer1").style.visibility = "hidden";
     document.querySelector("#answer2").style.visibility = "hidden";
@@ -235,11 +205,11 @@ function exitGame() {
     document.querySelector("#correctAnswer").style.display = "none";
     document.querySelector("#imgToDisplay").style.display = "none";
     if (finalScore > 0) {
-        document.querySelector("#responseMsg").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
+        document.querySelector("#finalMsg").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
     } else if (finalScore < 0) {
-        document.querySelector("#responseMsg").innerText = "The ignorance beat you by " + (-1 * finalScore) + " points!";
+        document.querySelector("#finalMsg").innerText = "The ignorance beat you by " + (-1 * finalScore) + " points!";
     } else {
-        document.querySelector("#responseMsg").innerText = "It's a tie!";
+        document.querySelector("#finalMsg").innerText = "It's a tie!";
     }
     document.querySelector("#playAgain").style.visibility = "initial";
     document.querySelector("#score").style.display = "none";

@@ -113,17 +113,13 @@ header {
 #exit {
     margin-top: 2rem;
     background-color: #ce1126;
-    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 #next {
     margin-left: 1rem;
     float: none;
 }
-
-/*p {
-    margin-left: 1rem;
-}*/
 
 #playAgain {
     margin-top: 2rem;
@@ -135,4 +131,9 @@ header {
 
 #correctAnswer {
     margin-top: 0;
+}
+
+#finalMsg {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 28px;
 }
