@@ -183,7 +183,9 @@ function confirmExit(event) {
 
 function cancelExit(event) {
     event.preventDefault();
-    console.log(i);
+    document.querySelector("#game").style.opacity= "1";
+    document.querySelector("#exit").style.opacity= "1";
+    modal.style.display = "none";
 }
 
 function checkAnswer(event) {
