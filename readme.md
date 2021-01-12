@@ -30,7 +30,21 @@ Both the player's and "ignorance" (incorrectly answered questions) scores are st
 answered, the game will automatically take the player to the Exit screen and will render who won the game.
 
 ## Images
+### Wireframe
+![WF1](/readme_images/wireframe1.jpeg)
+![WF2] (/readme_images/wireframe2.jpeg)
+
+### Welcome Screen
 ![Intro](/readme_images/Intro.png)
+
+### Question
+![Question](/readme_images/Question.png)
+
+### Answer & Score
+![Answer](/readme_images/Answer.png)
+
+### Exit
+![Exit](/readme_images/Exit.png)
 
 ## Goals
 ### Minimum Viable Product
