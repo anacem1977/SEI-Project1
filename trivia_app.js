@@ -6,70 +6,80 @@ let questionsDataBase = [
         optA: "Eagle",
         optB: "Cow",
         optC: "Dog",
-        correct: "A"
+        correct: "A",
+        correctAns: "Eagle"
     },
     {
         question: "When does México celebrate Independence Day?",
         optA: "May 5th",
         optB: "September 16th",
         optC: "November 20th",
-        correct: "B"
+        correct: "B",
+        correctAns: "September 16th"
     },
     {
         question: "What is México's official name (in English)",
         optA: "Republic of México",
         optB: "México",
         optC: "Mexican United States",
-        correct: "C"
+        correct: "C",
+        correctAns: "Mexican United States"
     },
     {
         question: "Which of the following was invented by a Mexican?",
         optA: "Washing machine",
         optB: "Birth Control Pill",
         optC: "Adhesive tape",
-        correct: "B"
+        correct: "B",
+        correctAns: "Birth Control Pill"
     },
     {
         question: "When were the Olympic games celebrated in México?",
         optA: "1976",
         optB: "1988",
         optC: "1968",
-        correct: "C"
+        correct: "C",
+        correctAns: "1968"
     },
     {
         question: "Which of the following is one of the main products México exports?",
         optA: "Tomato",
         optB: "Chile",
         optC: "Strawberry",
-        correct: "A"
+        correct: "A",
+        correctAns: "Tomato"
     },
     {
         question: "What was México's name prior to its independence?",
         optA: "México",
         optB: "New Spain",
         optC: "Tenochtitlán",
-        correct: "B"
+        correct: "B",
+        correctAns: "New Spain"
     },
     {
         question: "What is México's estimated population by 2020?",
         optA: "130 million",
         optB: "100 million",
         optC: "115 million",
-        correct: "A"
+        correct: "A",
+        correctAns: "130 million"
     },
     {
         question: "Which is the only state where Tequila is produced?",
         optA: "Chihuahua",
         optB: "Tlaxcala",
         optC: "Jalisco",
-        correct: "C"
+        correct: "C",
+        correctAns: "Jalisco"
     },
     {
         question: "When does México celebrate the \"Day of the Dead\"?",
         optA: "November 2nd",
         optB: "May 5th",
         optC: "October 31st",
-        correct: "A"
+        correct: "A",
+        correctAns: "November 2nd"
     }
 ]
 
@@ -88,9 +98,7 @@ let imgSrc = [
 
 //FISHER-YATES ALGORITHM TO SHUFFLE AN ARRAY
 //tutorialspoint.com/what-is-fisher-yates-shuffle-in.javascript
-
 let myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 let j = 0;
 let k = 0;
 let temp = 0;
@@ -111,6 +119,7 @@ document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 document.querySelector("#imgToDisplay").style.display = "none";
+document.querySelector("#finalMsg").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -145,15 +154,14 @@ function startGame() {
     document.querySelector("#question").innerText = questionsDataBase[myArray[i]].question;
     document.querySelector("#question").style.display= "initial";
     document.querySelector("#answer1").innerText= "A. "+ questionsDataBase[myArray[i]].optA;
-    document.querySelector("#answer1").style.visibility= "initial";
+    document.querySelector("#answer1").style.visibility= "block";
     document.querySelector("#answer2").innerText = "B. "+ questionsDataBase[myArray[i]].optB;
-    document.querySelector("#answer2").style.visibility= "initial";
+    document.querySelector("#answer2").style.visibility= "block";
     document.querySelector("#answer3").innerText = "C. "+ questionsDataBase[myArray[i]].optC;
-    document.querySelector("#answer3").style.visibility= "initial";
+    document.querySelector("#answer3").style.visibility= "block";
     document.querySelector("#instructions").style.display = "none";
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#exit").style.visibility = "initial";
-    console.log("i= "+i);
     document.querySelector("#game").style.backgroundColor = "whitesmoke";
     document.querySelector("#game").style.border = "5px solid #ce1126";
 }
@@ -169,7 +177,9 @@ function checkAnswer(event) {
         capAnswerInput = "C"
     }
     document.querySelector("#next").style.visibility = "initial";
-    document.querySelector("#responseMsg").innerText = "";
+    document.querySelector("#answer1").style.display= "none";
+    document.querySelector("#answer2").style.display= "none";
+    document.querySelector("#answer3").style.display= "none";
     if (capAnswerInput === questionsDataBase[myArray[i]].correct) {
         yourScore += 1;
         document.querySelector("#imgToDisplay").style.display = "initial";
@@ -185,7 +195,7 @@ function checkAnswer(event) {
         document.querySelector("#responseMsg").style.display = "initial"
         document.querySelector("#responseMsg").innerText = "That is incorrect!";
         document.querySelector("#correctAnswer").style.display = "initial"
-        document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[myArray[i]].correct;
+        document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[myArray[i]].correctAns;
         } 
     document.querySelector("#score").style.display = "flex";
     document.querySelector("#yourScore").value = yourScore;
@@ -197,6 +207,9 @@ function checkAnswer(event) {
 function nextQuestion() {
     i ++;
     document.querySelector("#imgToDisplay").style.display = "none";
+    document.querySelector("#answer1").style.display= "block";
+    document.querySelector("#answer2").style.display= "block";
+    document.querySelector("#answer3").style.display= "block";
     if (i < questionsDataBase.length) {
         document.querySelector("#next").style.visibility = "hidden";
         document.querySelector("#responseMsg").style.display = "none";
@@ -222,6 +235,7 @@ function exitGame() {
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#correctAnswer").style.display = "none";
     document.querySelector("#imgToDisplay").style.display = "none";
+    document.querySelector("#finalMsg").style.display = "initial";
     if (finalScore > 0) {
         document.querySelector("#finalMsg").innerText = "You won by " + finalScore+ " points and beat the ignorance!";
     } else if (finalScore < 0) {

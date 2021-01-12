@@ -72,6 +72,7 @@ header {
 #question {
     font-size: 30px;
     margin-top: 0;
+    padding: 0 1rem 0 1rem;
 }
 
 #listOfQuestions {
