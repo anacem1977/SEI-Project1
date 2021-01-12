@@ -8,7 +8,7 @@ body {
     background-image: url("images/zocaloCDMX2.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    /*background-position: center top;*/
+    height: 100vh;
 }
 
 li {
@@ -52,7 +52,7 @@ header {
     letter-spacing: 2px;
 }
 
-#exit, #playAgain, #next, #submitAnsr {
+#exit, #playAgain, #next, #submitAnsr, #exitNo, #exitYes {
     font-family: 'Luckiest Guy', cursive;
     font-size: 16px;
     background-color: #006847;
@@ -111,7 +111,7 @@ header {
     margin-right: 1rem;
 }
 
-#exit {
+#exit, #exitYes {
     margin-top: 2rem;
     background-color: #ce1126;
     margin-right: 2rem;
@@ -134,7 +134,11 @@ header {
     margin-top: 0;
 }
 
-#finalMsg {
+#finalMsg, #myModal {
     font-family: 'Luckiest Guy', cursive;
     font-size: 28px;
+}
+
+#exitYes, #exitNo {
+    float: none;
 }

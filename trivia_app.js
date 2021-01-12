@@ -112,7 +112,6 @@ function shuffle(myArray) {
 }
 shuffle(myArray);
 
-document.querySelector("#form").style.display = "none";
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
@@ -120,6 +119,7 @@ document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 document.querySelector("#imgToDisplay").style.display = "none";
 document.querySelector("#finalMsg").style.display = "none";
+document.querySelector("#myModal").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -127,7 +127,7 @@ startBtn.addEventListener("click", startGame);
 
 //BOTÓN EXIT
 const exitBtn = document.querySelector("#exit");
-exitBtn.addEventListener("click", exitGame);
+exitBtn.addEventListener("click", confirmExit);
 
 //BOTÓN NEXT
 const nextBtn = document.querySelector("#next");
@@ -165,6 +165,32 @@ function startGame() {
     document.querySelector("#game").style.backgroundColor = "whitesmoke";
     document.querySelector("#game").style.border = "5px solid #ce1126";
 }
+
+let modal=document.getElementById("myModal");
+let button=document.getElementById("exit");
+let spanYes=document.getElementById("exitYes");
+let spanNo=document.getElementById("exitNo");
+
+function confirmExit() {
+    console.log(i);
+    modal.style.display = "block";
+    document.querySelector("#question").style.display= "none";
+    document.querySelector("#answer1").style.display= "none";
+    document.querySelector("#answer2").style.display= "none";
+    document.querySelector("#answer3").style.display= "none";
+}
+
+/*spanYes.onclick = function() {
+    modal.style.display = "none";
+}
+spanNo.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}*/
 
 function checkAnswer(event) {
     event.preventDefault();

@@ -32,7 +32,7 @@ answered, the game will automatically take the player to the Exit screen and wil
 ## Images
 ### Wireframe
 ![WF1](/readme_images/wireframe1.jpeg)
-![WF2] (/readme_images/wireframe2.jpeg)
+![WF2](/readme_images/wireframe2.jpeg)
 
 ### Welcome Screen
 ![Intro](/readme_images/Intro.png)
