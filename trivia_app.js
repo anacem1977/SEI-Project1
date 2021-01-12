@@ -150,6 +150,7 @@ const modal = document.getElementById("myModal");
 const confirmYes = document.getElementById("exitYes");
 confirmYes.addEventListener("click", exitGame)
 const confirmNo = document.getElementById("exitNo");
+confirmNo.addEventListener("click", cancelExit)
 
 let yourScore = 0;
 let ignorance = 0;
@@ -176,22 +177,14 @@ function confirmExit(event) {
     event.preventDefault();
     console.log(i);
     modal.style.display = "block";
-    document.querySelector("#question").style.display= "none";
-    document.querySelector("#answer1").style.display= "none";
-    document.querySelector("#answer2").style.display= "none";
-    document.querySelector("#answer3").style.display= "none";
-    document.querySelector("#exit").style.display= "none";
-    document.querySelector("#next").style.display= "none";
-    document.querySelector("#responseMsg").style.display = "none";
-    document.querySelector("#imgToDisplay").style.display = "none";
-    document.querySelector("#correctAnswer").style.display = "none";
+    document.querySelector("#game").style.opacity= "0";
+    document.querySelector("#exit").style.opacity= "0";
 }
-/*
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}*/
+
+function cancelExit(event) {
+    event.preventDefault();
+    console.log(i);
+}
 
 function checkAnswer(event) {
     event.preventDefault();
@@ -253,6 +246,7 @@ function nextQuestion(event) {
 
 function exitGame(event) {
     event.preventDefault(event);
+    document.querySelector("#game").style.opacity= "1";
     document.querySelector("#myModal").style.display = "none";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
