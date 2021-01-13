@@ -23,7 +23,7 @@ let questionsDataBase = [
         optB: "México",
         optC: "Mexican United States",
         correct: "C",
-        correctAns: "Mexican United States"
+        correctAns: "United Mexican States"
     },
     {
         question: "Which of the following was invented by a Mexican?",
@@ -197,6 +197,7 @@ function cancelExit(event) {
 
 function checkAnswer(event) {
     event.preventDefault();
+    console.log(i);
     answerInput = event.target.id;
     if (answerInput === "answer1") {
         capAnswerInput = "A";
@@ -230,15 +231,6 @@ function checkAnswer(event) {
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
     return finalScore;
-}
-
-function getMoreInfo(event) {
-    event.preventDefault();
-    moreInfo.style.display = "block";
-    document.querySelector("#game").style.opacity= "0";
-    document.querySelector("#exit").style.opacity= "0";
-    document.querySelector("#text2InModal").innerText = moreInformation[0];
-    document.querySelector("#moreInfoButton").style.visibility = "hidden";
 }
 
 span.onclick = function() {
@@ -295,10 +287,29 @@ function exitGame(event) {
     document.querySelector("#score").style.display = "none";
 }
 
+function getMoreInfo(event) {
+    event.preventDefault();
+    console.log(i);
+    moreInfo.style.display = "block";
+    document.querySelector("#game").style.opacity= "0";
+    document.querySelector("#exit").style.opacity= "0";
+    document.querySelector("#text2InModal").innerText = moreInformation[myArray[i]];
+    document.querySelector("#moreInfoButton").style.visibility = "hidden";
+}
+
 function playAgain() {
     location.reload();
 }
 
 let moreInformation = [
-    "The flag of Mexico (Spanish: Bandera de México) is a vertical tricolor of green, white, and red with the national coat of arms charged in the center of the white stripe. The coat of arms features an eagle, holding a serpent in its talon, is perched on top of a prickly pear cactus; the cactus is situated on a rock that rises above a lake. (https://en.wikipedia.org/wiki/Flag_of_Mexico)"
+    "The flag of Mexico is a vertical tricolor of green, white, and red with the national coat of arms charged in the center of the white stripe. The coat of arms features an eagle, holding a serpent in its talon, is perched on top of a prickly pear cactus; the cactus is situated on a rock that rises above a lake. (en.wikipedia.org/wiki/Flag_of_Mexico)",
+    "Miguel Hidalgo y Costilla was a Roman Catholic priest and is now considered the father of Mexican independence. His uprising on 16 September 1810 is considered the spark igniting the Mexican War of Independence when he rang his church bell and gave the call to arms. (en.wikipedia.org/wiki/Cry_of_Dolores, en.wikipedia.org/wiki/Mexican_War_of_Independence",
+    "Mexico officially the United Mexican States (Estados Unidos Mexicanos), is a country in the southern portion of North America. It is bordered to the north by the United States; to the south and west by the Pacific Ocean; to the southeast by Guatemala, Belize, and the Caribbean Sea; and to the east by the Gulf of Mexico. en.wikipedia.org/wiki/Mexico",
+    "Luis Ernesto Miramontes Cárdenas (March 16, 1925 – September 13, 2004) was a Mexican chemist known as the co-inventor of the progestin norethisterone used in one of the first three oral contraceptives. en.wikipedia.org/wiki/Luis_E._Miramontes",
+    "The 1968 Summer Olympics, officially known as the Games of the XIX Olympiad, were an international multi-sport event held from 12 to 27 October 1968 in Mexico City, Mexico. These were the first Olympic Games to be staged in Latin America and the first to be staged in a Spanish-speaking country. en.wikipedia.org/wiki/1968_Summer_Olympics",
+    "Mexico exports a wide variety of products, led by tomatoes, peppers, asparagus, onions, and cucumbers. In particular, Mexico is an important source of winter vegetables for the United States. www.ers.usda.gov/webdocs/outlooks/40425/15579_wrs0406f_1_.pdf?v=577.5",
+    "The Viceroyalty of New Spain was an integral territorial entity of the Spanish Empire, established by Habsburg Spain during the Spanish colonization of the Americas. It included what is now Mexico plus the current U.S. states of California, Nevada, Colorado, Utah, New Mexico, Arizona, Texas, Oregon, Washington, Florida, Louisiana, the Captaincy General of Guatemala, the Captaincy General of Cuba, and the Captaincy General of the Philippines. en.wikipedia.org/wiki/New_Spain",
+    "With a population of about 126 million in 2019,Mexico is the 10th most populated country in the world. It is the most populous Spanish-speaking country and the third-most populous in the Americas after the United States and Brazil. en.wikipedia.org/wiki/Demographics_of_Mexico",
+    "Santiago de Tequila is a Mexican town and municipality located in the state of Jalisco about 60 km from the city of Guadalajara.Tequila is best known as being the birthplace of the drink that bears its name, “tequila,” which is made from the blue agave plant, native to this area. en.wikipedia.org/wiki/Tequila,_Jalisco",
+    "The Day of the Dead is a Mexican holiday celebrated in Mexico and elsewhere associated with the Catholic celebrations of All Saints' Day and All Souls' Day. The multi-day holiday involves family and friends gathering to pray for and to remember friends and family members who have died. It is commonly portrayed as a day of celebration rather than mourning. en.wikipedia.org/wiki/Day_of_the_Dead"
 ]

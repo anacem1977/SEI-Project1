@@ -65,7 +65,7 @@ answered, the game will automatically take the player to the Exit screen and wil
 + Display scores for player and ignorance ✔︎
 + Add modal when clicking "Exit" button (Are you sure you want to exit?) ✔︎
 ### Strecth Goal 3
-+ Display information about the correct answer
++ Display information about the correct answer ✔︎
 + Add audio effects
 
 ## Author
