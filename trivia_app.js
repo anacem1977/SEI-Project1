@@ -242,6 +242,7 @@ function checkAnswer(event) {
         document.querySelector("#correctAnswer").innerText = "The correct answer is " + questionsDataBase[myArray[i]].correctAns;
         } 
     document.querySelector("#score").style.display = "flex";
+    document.querySelector("#yourScoreName").innerText = playerName;
     document.querySelector("#yourScore").value = yourScore;
     document.querySelector("#ignorance").value = ignorance;
     finalScore = yourScore - ignorance;
@@ -275,7 +276,9 @@ function nextQuestion(event) {
 }
 
 function exitGame(event) {
-    event.preventDefault();
+    if (i < questionsDataBase.length)
+    {event.preventDefault();
+    console.log(myArray[i])}
     document.querySelector("#game").style.opacity= "1";
     document.querySelector("form").style.display = "none";
     document.querySelector("#myModal").style.display = "none";
