@@ -330,7 +330,7 @@ let imgSrc = [
     "images/poblacion.jpg",
     "images/tequila.jpg",
     "images/muertos.jpg",
-    "images/avocado.jpg",
+    "images/aguacate.png",
     "images/cancun.jpg",
     "images/Puebla.png"
 ];
