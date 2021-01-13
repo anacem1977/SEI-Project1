@@ -162,9 +162,18 @@ header {
     font-size: 24px;
 }
 
-#yourName {
+#yourName, #howMany {
     font-size: 18px;
     font-family: 'Balsamiq Sans', cursive;
     height: 2rem;
     margin-right: 1rem;
+}
+
+#yourName {
+    width: 8rem;
+}
+
+#howMany {
+    width: 12rem;
+    margin-right: 0;
 }

@@ -175,10 +175,14 @@ let yourScore = 0;
 let ignorance = 0;
 let i=0;
 let finalScore = 0;
-let playerName = ""
+let playerName = "";
+let amntQuestions = questionsDataBase.length;
 
 function startGame() {
     playerName = (document.querySelector("#yourName").value);
+    if (document.querySelector("#howMany").value !== "") {
+        amntQuestions = (document.querySelector("#howMany").value); 
+    }
     document.querySelector("#question").innerText = questionsDataBase[myArray[i]].question;
     document.querySelector("#question").style.display= "initial";
     document.querySelector("#answer1").innerText= "A. "+ questionsDataBase[myArray[i]].optA;
@@ -192,7 +196,7 @@ function startGame() {
     document.querySelector("#exit").style.visibility = "initial";
     document.querySelector("#game").style.backgroundColor = "whitesmoke";
     document.querySelector("#game").style.border = "5px solid #ce1126";
-    return playerName;
+    return playerName, amntQuestions;
 }
 
 function confirmExit(event) {
@@ -263,7 +267,7 @@ function nextQuestion(event) {
     document.querySelector("#answer1").style.display= "block";
     document.querySelector("#answer2").style.display= "block";
     document.querySelector("#answer3").style.display= "block";
-    if (i < questionsDataBase.length) {
+    if (i < amntQuestions) {
         document.querySelector("#next").style.visibility = "hidden";
         document.querySelector("#responseMsg").style.display = "none";
         document.querySelector("#correctAnswer").style.display = "none";
@@ -276,9 +280,8 @@ function nextQuestion(event) {
 }
 
 function exitGame(event) {
-    if (i < questionsDataBase.length)
-    {event.preventDefault();
-    console.log(myArray[i])}
+    if (i < amntQuestions)
+    {event.preventDefault();}
     document.querySelector("#game").style.opacity= "1";
     document.querySelector("form").style.display = "none";
     document.querySelector("#myModal").style.display = "none";

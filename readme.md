@@ -60,7 +60,7 @@ answered, the game will automatically take the player to the Exit screen and wil
 ### Stretch Goal 2
 + Add categories to select questions from
 + Add questions ✔︎
-+ Select how many questions to answer
++ Select how many questions to answer ✔︎
 + Randomize questions ✔︎
 + Display scores for player and ignorance ✔︎
 + Add modal when clicking "Exit" button (Are you sure you want to exit?) ✔︎
