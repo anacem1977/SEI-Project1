@@ -3,7 +3,7 @@
 Multiple choice question game about México
 
 ## Description & Motivation
-I would like people to learn about some interesting and fun facts about México by playing this game. The player will be asked 10 random questions with three choices to select their answer from and they will need to beat the Ignorance by scoring the highest amount of correct answers.
+I would like people to learn about some interesting and fun facts about México by playing this game. The player will be asked random questions with three choices to select their answer from and they will need to beat the Ignorance by scoring the highest amount of correct answers.
 
 ## Technologies Used
 + Command Line: Interaction with the computer and navigating the file system.
@@ -59,9 +59,9 @@ answered, the game will automatically take the player to the Exit screen and wil
 + Ask and display player's name ✔︎
 ### Stretch Goal 2
 + Add categories to select questions from
-+ Add questions
++ Add questions ✔︎
 + Select how many questions to answer
-+ Randomize questions  ✔︎
++ Randomize questions ✔︎
 + Display scores for player and ignorance ✔︎
 + Add modal when clicking "Exit" button (Are you sure you want to exit?) ✔︎
 ### Strecth Goal 3

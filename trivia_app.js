@@ -80,12 +80,36 @@ let questionsDataBase = [
         optC: "October 31st",
         correct: "A",
         correctAns: "November 2nd"
+    },
+    {
+        question: "Which state is the main producer of avocados?",
+        optA: "Coahuila",
+        optB: "Sinaloa",
+        optC: "Michoacán",
+        correct: "C",
+        correctAns: "Michoacán"
+    },
+    {
+        question: "Where is Cancún located?",
+        optA: "Yucatán",
+        optB: "Quintana Roo",
+        optC: "Chiapas",
+        correct: "B",
+        correctAns: "Quintana Roo"
+    },
+    {
+        question: "What is actually commemorated on May 5th?",
+        optA: "Battle of Puebla",
+        optB: "Mexican Revolution",
+        optC: "Mother's Day",
+        correct: "A",
+        correctAns: "Battle of Puebla"
     }
 ]
 
 //FISHER-YATES ALGORITHM TO SHUFFLE AN ARRAY
 //tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript
-let myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 let j = 0;
 let k = 0;
 let temp = 0;
@@ -302,7 +326,10 @@ let imgSrc = [
     "images/nuevaespana.jpg",
     "images/poblacion.jpg",
     "images/tequila.jpg",
-    "images/muertos.jpg"
+    "images/muertos.jpg",
+    "images/avocado.jpg",
+    "images/cancun.jpg",
+    "images/Puebla.png"
 ];
 
 let moreInformation = [
@@ -315,5 +342,8 @@ let moreInformation = [
     "The Viceroyalty of New Spain was an integral territorial entity of the Spanish Empire, established by Habsburg Spain during the Spanish colonization of the Americas. It included what is now Mexico plus the current U.S. states of California, Nevada, Colorado, Utah, New Mexico, Arizona, Texas, Oregon, Washington, Florida, Louisiana, the Captaincy General of Guatemala, the Captaincy General of Cuba, and the Captaincy General of the Philippines. en.wikipedia.org/wiki/New_Spain",
     "With a population of about 126 million in 2019, Mexico is the 10th most populated country in the world. It is the most populous Spanish-speaking country and the third-most populous in the Americas after the United States and Brazil. en.wikipedia.org/wiki/Demographics_of_Mexico",
     "Santiago de Tequila is a Mexican town and municipality located in the state of Jalisco about 60 km from the city of Guadalajara.Tequila is best known as being the birthplace of the drink that bears its name, “tequila,” which is made from the blue agave plant, native to this area. en.wikipedia.org/wiki/Tequila,_Jalisco",
-    "The Day of the Dead is a Mexican holiday celebrated in Mexico and elsewhere associated with the Catholic celebrations of All Saints' Day and All Souls' Day. The multi-day holiday involves family and friends gathering to pray for and to remember friends and family members who have died. It is commonly portrayed as a day of celebration rather than mourning. en.wikipedia.org/wiki/Day_of_the_Dead"
+    "The Day of the Dead is a Mexican holiday celebrated in Mexico and elsewhere associated with the Catholic celebrations of All Saints' Day and All Souls' Day. The multi-day holiday involves family and friends gathering to pray for and to remember friends and family members who have died. It is commonly portrayed as a day of celebration rather than mourning. en.wikipedia.org/wiki/Day_of_the_Dead",
+    "Mexican avocado production is concentrated in Michoacán state in west central Mexico. Accounting for 92% of the country's production of the crop, Michoacán leads the world in avocado production, with approximately 260,000 acres). en.wikipedia.org/wiki/Avocado_production_in_Mexico",
+    "Cancún is a city in southeast Mexico on the northeast coast of the Yucatán Peninsula in the Mexican state of Quintana Roo. It is a significant tourist destination in Mexico in theCaribbean Sea and is one of Mexico's easternmost points. en.wikipedia.org/wiki/Canc%C3%BAn",
+    "\"Cinco de Mayo\" is observed to commemorate the Mexican Army's victory over the French Empire at the Battle of Puebla, on May 5, 1862, under the leadership of General Ignacio Zaragoza. FUN FACT: It is not even an official holiday in México. en.wikipedia.org/wiki/Cinco_de_Mayo"
 ]
