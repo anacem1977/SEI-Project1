@@ -83,19 +83,6 @@ let questionsDataBase = [
     }
 ]
 
-let imgSrc = [
-    "images/bandera.jpg",
-    "images/independencia.jpg",
-    "images/EUM2.png",
-    "images/pill.jpg",
-    "images/1968.jpg",
-    "images/tomato.jpeg",
-    "images/nuevaespana.jpg",
-    "images/poblacion.jpg",
-    "images/tequila.jpg",
-    "images/muertos.jpg"
-];
-
 //FISHER-YATES ALGORITHM TO SHUFFLE AN ARRAY
 //tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript
 let myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -164,8 +151,10 @@ let yourScore = 0;
 let ignorance = 0;
 let i=0;
 let finalScore = 0;
+let playerName = ""
 
 function startGame() {
+    playerName = (document.querySelector("#yourName").value);
     document.querySelector("#question").innerText = questionsDataBase[myArray[i]].question;
     document.querySelector("#question").style.display= "initial";
     document.querySelector("#answer1").innerText= "A. "+ questionsDataBase[myArray[i]].optA;
@@ -179,6 +168,7 @@ function startGame() {
     document.querySelector("#exit").style.visibility = "initial";
     document.querySelector("#game").style.backgroundColor = "whitesmoke";
     document.querySelector("#game").style.border = "5px solid #ce1126";
+    return playerName;
 }
 
 function confirmExit(event) {
@@ -186,6 +176,7 @@ function confirmExit(event) {
     modal.style.display = "block";
     document.querySelector("#game").style.opacity= "0";
     document.querySelector("#exit").style.opacity= "0";
+    document.querySelector("#moreInfoButton").style.visibility = "hidden";
 }
 
 function cancelExit(event) {
@@ -193,11 +184,11 @@ function cancelExit(event) {
     document.querySelector("#game").style.opacity= "1";
     document.querySelector("#exit").style.opacity= "1";
     modal.style.display = "none";
+    document.querySelector("#moreInfoButton").style.visibility = "initial";
 }
 
 function checkAnswer(event) {
     event.preventDefault();
-    console.log(i);
     answerInput = event.target.id;
     if (answerInput === "answer1") {
         capAnswerInput = "A";
@@ -240,7 +231,6 @@ span.onclick = function() {
 }
 
 function nextQuestion(event) {
-    console.log(i);
     i ++;
     event.preventDefault();
     document.querySelector("#moreInfoButton").style.visibility = "hidden";
@@ -263,15 +253,17 @@ function nextQuestion(event) {
 function exitGame(event) {
     event.preventDefault();
     document.querySelector("#game").style.opacity= "1";
+    document.querySelector("form").style.display = "none";
     document.querySelector("#myModal").style.display = "none";
     document.querySelector("#next").style.visibility = "hidden";
     document.querySelector("#exit").style.visibility = "hidden";
+    document.querySelector("#moreInfoButton").style.visibility = "hidden";
     document.querySelector("#responseMsg").style.display = "none";
     document.querySelector("#question").style.display = "none";
     document.querySelector("#answer1").style.visibility = "hidden";
     document.querySelector("#answer2").style.visibility = "hidden";
     document.querySelector("#answer3").style.visibility = "hidden";
-    document.querySelector("h1").innerText = "THANK YOU FOR PLAYING";
+    document.querySelector("h1").innerText = "THANK YOU FOR PLAYING " + playerName + "!";
     document.querySelector("#subtitle").style.display = "none";
     document.querySelector("#correctAnswer").style.display = "none";
     document.querySelector("#imgToDisplay").style.display = "none";
@@ -289,7 +281,6 @@ function exitGame(event) {
 
 function getMoreInfo(event) {
     event.preventDefault();
-    console.log(i);
     moreInfo.style.display = "block";
     document.querySelector("#game").style.opacity= "0";
     document.querySelector("#exit").style.opacity= "0";
@@ -301,6 +292,19 @@ function playAgain() {
     location.reload();
 }
 
+let imgSrc = [
+    "images/bandera.jpg",
+    "images/independencia.jpg",
+    "images/EUM2.png",
+    "images/pill.jpg",
+    "images/1968.jpg",
+    "images/tomato.jpeg",
+    "images/nuevaespana.jpg",
+    "images/poblacion.jpg",
+    "images/tequila.jpg",
+    "images/muertos.jpg"
+];
+
 let moreInformation = [
     "The flag of Mexico is a vertical tricolor of green, white, and red with the national coat of arms charged in the center of the white stripe. The coat of arms features an eagle, holding a serpent in its talon, is perched on top of a prickly pear cactus; the cactus is situated on a rock that rises above a lake. (en.wikipedia.org/wiki/Flag_of_Mexico)",
     "Miguel Hidalgo y Costilla was a Roman Catholic priest and is now considered the father of Mexican independence. His uprising on 16 September 1810 is considered the spark igniting the Mexican War of Independence when he rang his church bell and gave the call to arms. (en.wikipedia.org/wiki/Cry_of_Dolores, en.wikipedia.org/wiki/Mexican_War_of_Independence",
@@ -309,7 +313,7 @@ let moreInformation = [
     "The 1968 Summer Olympics, officially known as the Games of the XIX Olympiad, were an international multi-sport event held from 12 to 27 October 1968 in Mexico City, Mexico. These were the first Olympic Games to be staged in Latin America and the first to be staged in a Spanish-speaking country. en.wikipedia.org/wiki/1968_Summer_Olympics",
     "Mexico exports a wide variety of products, led by tomatoes, peppers, asparagus, onions, and cucumbers. In particular, Mexico is an important source of winter vegetables for the United States. www.ers.usda.gov/webdocs/outlooks/40425/15579_wrs0406f_1_.pdf?v=577.5",
     "The Viceroyalty of New Spain was an integral territorial entity of the Spanish Empire, established by Habsburg Spain during the Spanish colonization of the Americas. It included what is now Mexico plus the current U.S. states of California, Nevada, Colorado, Utah, New Mexico, Arizona, Texas, Oregon, Washington, Florida, Louisiana, the Captaincy General of Guatemala, the Captaincy General of Cuba, and the Captaincy General of the Philippines. en.wikipedia.org/wiki/New_Spain",
-    "With a population of about 126 million in 2019,Mexico is the 10th most populated country in the world. It is the most populous Spanish-speaking country and the third-most populous in the Americas after the United States and Brazil. en.wikipedia.org/wiki/Demographics_of_Mexico",
+    "With a population of about 126 million in 2019, Mexico is the 10th most populated country in the world. It is the most populous Spanish-speaking country and the third-most populous in the Americas after the United States and Brazil. en.wikipedia.org/wiki/Demographics_of_Mexico",
     "Santiago de Tequila is a Mexican town and municipality located in the state of Jalisco about 60 km from the city of Guadalajara.Tequila is best known as being the birthplace of the drink that bears its name, “tequila,” which is made from the blue agave plant, native to this area. en.wikipedia.org/wiki/Tequila,_Jalisco",
     "The Day of the Dead is a Mexican holiday celebrated in Mexico and elsewhere associated with the Catholic celebrations of All Saints' Day and All Souls' Day. The multi-day holiday involves family and friends gathering to pray for and to remember friends and family members who have died. It is commonly portrayed as a day of celebration rather than mourning. en.wikipedia.org/wiki/Day_of_the_Dead"
 ]

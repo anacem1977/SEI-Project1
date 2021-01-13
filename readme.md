@@ -55,8 +55,8 @@ answered, the game will automatically take the player to the Exit screen and wil
 ### Stretch Goal 1
 + Background image  ✔︎
 + Display images about correctanswers once responses are submitted ✔︎
-+ Click on answer to select instead of typing  ✔︎
-+ Ask and display player's name
++ Click on answer to select instead of typing ✔︎
++ Ask and display player's name ✔︎
 ### Stretch Goal 2
 + Add categories to select questions from
 + Add questions
