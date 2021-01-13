@@ -114,12 +114,14 @@ shuffle(myArray);
 
 document.querySelector("#next").style.visibility = "hidden";
 document.querySelector("#exit").style.visibility = "hidden";
+document.querySelector("#moreInfoButton").style.visibility = "hidden";
 document.querySelector("#playAgain").style.visibility = "hidden";
 document.querySelector("#score").style.display = "none";
 document.querySelector("#correctAnswer").style.display = "none";
 document.querySelector("#imgToDisplay").style.display = "none";
 document.querySelector("#finalMsg").style.display = "none";
 document.querySelector("#myModal").style.display = "none";
+document.querySelector("#moreInfoModal").style.display = "none";
 
 //BOTÓN START
 const startBtn = document.querySelector("#start");
@@ -151,6 +153,12 @@ const confirmYes = document.getElementById("exitYes");
 confirmYes.addEventListener("click", exitGame)
 const confirmNo = document.getElementById("exitNo");
 confirmNo.addEventListener("click", cancelExit)
+
+//MORE INFO
+const moreInfo = document.getElementById("moreInfoModal");
+const openMoreInfo = document.getElementById("moreInfoButton");
+openMoreInfo.addEventListener("click", getMoreInfo);
+const span = document.getElementsByClassName("close")[0];
 
 let yourScore = 0;
 let ignorance = 0;
@@ -201,6 +209,7 @@ function checkAnswer(event) {
     document.querySelector("#answer1").style.display= "none";
     document.querySelector("#answer2").style.display= "none";
     document.querySelector("#answer3").style.display= "none";
+    document.querySelector("#moreInfoButton").style.visibility = "initial";
     if (capAnswerInput === questionsDataBase[myArray[i]].correct) {
         yourScore += 1;
         document.querySelector("#imgToDisplay").style.display = "initial";
@@ -223,10 +232,26 @@ function checkAnswer(event) {
     return finalScore;
 }
 
+function getMoreInfo(event) {
+    event.preventDefault();
+    moreInfo.style.display = "block";
+    document.querySelector("#game").style.opacity= "0";
+    document.querySelector("#exit").style.opacity= "0";
+    document.querySelector("#text2InModal").innerText = moreInformation[0];
+    document.querySelector("#moreInfoButton").style.visibility = "hidden";
+}
+
+span.onclick = function() {
+    moreInfo.style.display = "none";
+    document.querySelector("#game").style.opacity= "1";
+    document.querySelector("#exit").style.opacity= "1";
+}
+
 function nextQuestion(event) {
     console.log(i);
     i ++;
     event.preventDefault();
+    document.querySelector("#moreInfoButton").style.visibility = "hidden";
     document.querySelector("#imgToDisplay").style.display = "none";
     document.querySelector("#answer1").style.display= "block";
     document.querySelector("#answer2").style.display= "block";
@@ -273,3 +298,7 @@ function exitGame(event) {
 function playAgain() {
     location.reload();
 }
+
+let moreInformation = [
+    "The flag of Mexico (Spanish: Bandera de México) is a vertical tricolor of green, white, and red with the national coat of arms charged in the center of the white stripe. The coat of arms features an eagle, holding a serpent in its talon, is perched on top of a prickly pear cactus; the cactus is situated on a rock that rises above a lake. (https://en.wikipedia.org/wiki/Flag_of_Mexico)"
+]

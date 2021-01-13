@@ -52,7 +52,7 @@ header {
     letter-spacing: 2px;
 }
 
-#exit, #playAgain, #next, #submitAnsr, #exitNo, #exitYes {
+#exit, #playAgain, #next, #submitAnsr, #exitNo, #exitYes, #moreInfoButton {
     font-family: 'Luckiest Guy', cursive;
     font-size: 16px;
     background-color: #006847;
@@ -155,4 +155,17 @@ header {
     background-color: whitesmoke;
     top: 10rem;
     padding-bottom: 1rem;
+}
+
+#text2InModal {
+    text-align: justify;
+    text-indent: 1rem;
+    font-size: 18px;
+    margin-top: 3rem;
+    padding: 0 1rem 0 1rem;
+}
+
+.close {
+    margin-right: -90%;
+    font-size: 24px;
 }
